@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>クリックイベントと切り替え</title>
   <link rel="stylesheet" type="text/css" href="base.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  <script>
-  
-  $(function() {
-    $('.button').mousemove(function(){
-      $(this).css('background-color','red');
-  });
-    $('.button').mouseout(function(){
-      $(this).css('background-color','');
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $('.button').mousemove(function () {
+        $(this).css('background-color', 'red');
+      });
+      $('.button').mouseout(function () {
+        $(this).css('background-color', '');
+      });
     });
-  });
-
-
   </script>
 </head>
+
 <body>
   <div id="wrapper">
     <div id="button1" class="button">
@@ -31,4 +31,5 @@
     </div><!-- button3 -->
   </div><!-- wrapper -->
 </body>
+
 </html>

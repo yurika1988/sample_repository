@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>if文</title>
   <link rel="stylesheet" type="text/css" href="base.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  <script>
-  $(function(){
-    // ここに処理を記述
-    $('input[id="value"]').change(function(){
-     const user = $(this).val();
-       if(user == 1){
-        $('#box').css('background', 'red');
-       } else if(user == 2){
-        $('#box').css('background', 'lightgreen');
-       } else if(user == 3){
-        $('#box').css('background', 'blue');
-       }
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      // ここに処理を記述
+      $('input[id="value"]').change(function () {
+        const user = $(this).val();
+        if (user == 1) {
+          $('#box').css('background', 'red');
+        } else if (user == 2) {
+          $('#box').css('background', 'lightgreen');
+        } else if (user == 3) {
+          $('#box').css('background', 'blue');
+        }
       });
-  });
+    });
   </script>
 </head>
+
 <body>
   <input type="text" id="value">
   <input type="button" id="button" value="ボタン">
   <div id="box">
   </div><!-- button -->
 </body>
+
 </html>
