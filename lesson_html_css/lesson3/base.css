@@ -40,9 +40,13 @@ body {
 /* 上の部分は気にせずここから書く */
 
 img{
-  width: 1200px;
-  height: 800px;
+  height: 40vw;
 }
 nav{
-  margin: 5px 300px 100px 300px ;
-}
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+  }
