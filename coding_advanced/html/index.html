@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <title>メニュー|Casteria</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/base.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Casteria</h1>
+        <div class="burger"></div>
+        <nav id="global_nav">
+            <ul>
+                <li><a href="#">Home</li></a>
+                <li><a class="gray" href="#">Food</a></li>
+                <li><a class="gray" href="#">Drink</a></li>
+                <li><a class="gray" href="#">お問合わせ</a></li>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-light">Search</button>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="/img/food.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="/img/food2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="/img/interior.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="/img/restaurant.jpg" alt=""></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="center_container">
+        <main class="guidance">
+            <h2>新型コロナウイルスに対する取り組みの最新情報をご案内</h2>
+            <dl>
+                <dt>■衛生面に関して</dt>
+                <dd>
+                    ・マスクを着用しての接客<br>
+                    ・出勤前の検温の徹底<br>
+                    ・レジカウンターやドリンク受け渡し口等への飛沫防止ガードの設置<br>
+                    ・より頻度の高い手洗いの励行<br>
+                    ・テーブルにお客様用の消毒用アルコールの設置<br>
+                    ・従来員間の距離確保のため、休想や研修時の客席利用<br>
+                </dd>
+                <dt>■お客様へのご協力のお願い</dt>
+                <dd>
+                    ・店内では、飲食時以外のマスク着用をお願いいたします<br>
+                    ・入店時の手指の消毒にご協力ください<br>
+                    ・レジに並ぶ際、目安を示すフロアステッカーに沿った列間隔の確保にご力ください<br>
+                    ・多数でお越しの際は、お1人がまとめてご注文願います(混雑時に入場制限をする場合がございます)<br>
+                    ・発熱や体調不良の際はご入店をお控えください<br>
+                </dd>
+                <dt>■サービスに関して</dt>
+                <dd>
+                    ・自接お渡しする商品の提供、金銭授受時にグロープの着用<br>
+                    ・ドリンクやフードのサンプリング中止<br>
+                    ・地域活動・イベントの中止<br>
+                    ・混雑時間帯の客席の譲り合いへのご協力のお願いの実地<br>
+                    ・店内設置しているミルク、はちみつ、パウダー類の一時引き下げ<br>
+                    ・混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限<br>
+                </dd>
+            </dl>
+        </main>
+        <div id="menu_guidance">
+            <div class="fadeIn">
+                <h2>Signature Food</h2>
+                <ul>
+                    <li>
+                        <img src="/img/food.jpg">
+                        <figure>サーモンは刺身やカルパッチョで食べるのが美味しいですが、リッチな気分になれるサーモンステーキがおすすのです、サーモンの美味しさを引き立てる2種のソースも絶品です!
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+            <div class="fadeIn">
+                <h2>Our Coffee</h2>
+                <ul>
+                    <li>
+                        <img src="/img/barista.jpg">
+                        <figure>当店のコーヒー豆が厳選して世界中から買い付けています。そして、そのコーヒー豆のおいしさを最大限に引き出すために自社のロースタリーで焙煎しています。</figure>
+                    </li>
+                </ul>
+            </div>
+            <div class="fadeIn">
+                <h2>Our Food</h2>
+                <ul>
+                    <li>
+                        <img src="/img/food3.jpg">
+                        <figure>当店は何よりまずは衛生面に気をつけています。「安全・安心」をお届けするために日々継続的な努力を惜しみません。</figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fadeIn">
+            <div id="store_information">
+                <address>
+                    <h2>Address</h2>
+                    <p>681 XxXX Drive, XXXXX XXXX #U1 - 06 000000</p>
+                    <p>Opening Hours</p>
+                    <h2>Mondays - Friday: 10am - 9pm</h2>
+                    <p>Saturdays, Sundays & Public Holidays: 9am- 9pm</p>
+                </address>
+                <img src="/img/barista.jpg">
+            </div>
+        </div>
+    </div>
+    <div id="store_list">
+        <div class="fadeIn">
+            <h1>店舗一覧</h1>
+            <ul>
+                <li>
+                    <img src="/img/restaurant2.jpg">
+                    <p><a href="#">東京都渋谷xxxxxx xxxxx</a></p>
+                </li>
+                <li>
+                    <img src="/img/restaurant3.jpg">
+                    <p><a href="#">千葉県松戸市xxxxxx xxxxx</a></p>
+                </li>
+                <li>
+                    <img src="/img/restaurant4.jpg">
+                    <p><a href="#">神奈川県横浜市xxxxxx xxxxx</a></p>
+                </li>
+                <li>
+                    <img src="/img/restaurant5.jpg">
+                    <p><a href="#">神奈川県川越市xxxxxx xxxxx</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="#">運営会社</a></li>
+        </ul>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $(".guidance dt").click(function () {
+                $(this).next().slideToggle();
+                $(this).toggleClass("open");
+            });
+            $(window).scroll(function () {
+                $("body").fadeIn();
+            });
+
+            $(window).on('load scroll', function () {
+                var box = $('.fadeIn');
+                var animated = 'animated';
+                box.each(function () {
+                    var boxOffset = $(this).offset().top;
+                    var scrollPos = $(window).scrollTop();
+                    var wh = $(window).height();
+
+                    if (scrollPos > boxOffset - wh + 100) {
+                        $(this).addClass(animated);
+                    }
+                });
+            });
+            $(".burger").click(function () {
+                $("#global_nav").toggleClass("sp_open");
+                $("header").toggleClass("open");
+            });
+            $(".burger").mouseenter(function () {
+                $(this).css("outline", "1px solid orange");
+            })
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".swiper", {
+            // Optional parameters
+            loop: true,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                },
+            },
+
+            // If we need pagination
+            pagination: {
+                el: ".swiper-pagination",
+                type: "bullets",
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        });
+    </script>
+</body>
+</html>
