@@ -19,6 +19,26 @@ $arr = [
     'r2' => ['c1' => 7,'c2' => 8,'c3' => 12],
     'r3' => ['c1' => 25,'c2' => 9,'c3' => 130]
 ];
+
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>テーブル表示</title>
+<style>
+table {
+    border:1px solid #000;
+    border-collapse: collapse;
+}
+th, td {
+    border:1px solid #000;
+}
+</style>
+</head>
+<body>
+<?php
+
 $r = count($arr);
 $c = count($arr["r1"]);
 
@@ -64,23 +84,5 @@ echo "<td>" . array_sum($rowTotals) . "</td>";
 echo "</tr>";
 echo "</table>";
 ?>
-</table>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<title>テーブル表示</title>
-<style>
-table {
-    border:1px solid #000;
-    border-collapse: collapse;
-}
-th, td {
-    border:1px solid #000;
-}
-</style>
-</head>
-<body>
-
 </body>
 </html>
