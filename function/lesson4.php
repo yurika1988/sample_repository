@@ -18,13 +18,21 @@
 // 100円玉で購入した場合、
 // 50円足りません。
 
-$yen = 5000;   // 購入金額
+$yen = 500;   // 購入金額
 $product = 150; // 商品金額
 
 function calc($yen, $product) {
     // おつりの金額を計算
     $change = $yen - $product;
-
+    if($yen < 1000){
+        echo $yen."円玉で購入した場合、"."<br>";
+    }else{
+        echo $yen."円札で購入した場合、"."<br>";
+    }
+    if($yen < $product){
+        echo abs($change)."円足りません。";
+        return;
+    }
     // おつりを配列に追加する
     $change_count = array(
         10000 => 0,
@@ -44,10 +52,6 @@ function calc($yen, $product) {
             $change -= $key;
         }
     }
-    // 商品金額に満たしてない場合
-    if ($change < 0) {
-        echo abs($change)." 円足りません。";
-    }else{
     // おつりを表示
     foreach ($change_count as $key => $value) {
         if($key >= 1000){
@@ -57,8 +61,6 @@ function calc($yen, $product) {
         }
         }
     }
-}
-calc($yen, $product);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -68,7 +70,7 @@ calc($yen, $product);
 </head>
 <body>
     <section>
-        <!-- ここに結果表示 -->
+    <?php calc($yen, $product); ?>    
     </section>
 </body>
 </html>

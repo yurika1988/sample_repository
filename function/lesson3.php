@@ -42,7 +42,6 @@ function nabeatsu($i){
         }
     }
 }
-echo nabeatsu(15);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -52,7 +51,7 @@ echo nabeatsu(15);
 </head>
 <body>
     <section>
-        <!-- ここに結果表示 -->
+    <?php nabeatsu(15); ?>    
     </section>
 </body>
 </html>
