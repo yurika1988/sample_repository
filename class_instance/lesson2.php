@@ -32,8 +32,8 @@
 require_once 'lesson1.php';
 
 class Patient extends Person {
-    private float $height;
-    private float $weight;
+    public float $height;
+    public float $weight;
 
     public function __construct($name,$age,$gender,$height, $weight){
         parent::__construct($name, $age, $gender);
@@ -54,7 +54,7 @@ class Patient extends Person {
     }
 }
 $patient = new Patient("渡部",0,"",165.0, 50.0);
-echo $patient->getName()."さんの身長は".$patient->getHeigth()
+echo $patient->name."さんの身長は".$patient->getHeigth()
 ."mなので平均体重は".$patient->calculateStandardWeight()
 ."kgです。現在の体重は".$patient->getWeigth()."kgです。";
 

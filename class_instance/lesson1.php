@@ -19,9 +19,9 @@
 // 自己紹介→年齢加算→自己紹介の順にメソッドを動かして年齢を確認してください。
 
 class Person{
-    private String $name;
-    private int $age;
-    private String $gender;
+    public String $name;
+    public int $age;
+    public String $gender;
 
     public function __construct($name,$age,$gender){
         $this->name = $name;
@@ -31,12 +31,9 @@ class Person{
     public function selfIntroduction(){
             return "私の名前は".$this->name."です。"."年齢は".$this->age."歳です。"."性別は".$this->gender."です。";
         }
-    public function addAge($years = 1){
-        $this->age += $years;
+    public function addAge(){
+        $this->age += 1;
         return "誕生日がきました。";
-    }
-    public function getName(){
-        return $this->name;
     }
 }
     $person = new Person("川﨑",35,"女性");
@@ -46,9 +43,6 @@ class Person{
     echo "<br>";
     echo $person->selfIntroduction();
     echo "<br>";
-
-
-
 ?>
 
 
