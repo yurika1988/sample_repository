@@ -3,7 +3,8 @@
 // デバック練習
 // 氏名入力時に入力内容が表示されるようにプログラムを完成させてください。
 
-$createAgeGroup = function () {
+//セレクト内の数値を生成
+$createAgeGroup = function () { 
     $maxAge = 70;
     $minAge = 18;
     $ageGroup = array();
@@ -24,8 +25,8 @@ class SelfIntroduction
         string $lastName,
         string $firstName,
         int $age,
-        string $hobby,
-    ) {
+        string $hobby
+        ){
         $this->lastName     = $lastName;
         $this->firstName    = $firstName;
         $this->age          = $age;
@@ -48,12 +49,14 @@ class SelfIntroduction
     }
 }
 
-if (! empty($_POST)) {
+//ユーザー入力値の取得
+if (!empty($_POST)) {
     $lastName         = $_POST['last_name'];
     $firstName        = $_POST['first_name'];
     $age              = $_POST['age'];
     $hobby            = $_POST['hobby'];
-    if ($selfIntroduction) {
+    $selfIntroduction = new SelfIntroduction($lastName,$firstName,$age,$hobby);
+    if ($selfIntroduction != null) {
         echo '私の名前は'.$selfIntroduction->getFullName().'年齢は'.$selfIntroduction->getAge().'です。';
         echo '<br>';
         echo '趣味は'. $selfIntroduction->getHobby().'です。';
