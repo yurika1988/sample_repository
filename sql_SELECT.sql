@@ -105,7 +105,7 @@ SELECT
 FROM
     countries
 WHERE
-    indep_year <= 1990
+    indep_year < 1990
 OR  population > 100000
 ;
 -- 問13
@@ -117,12 +117,12 @@ FROM
 WHERE
     code = 'DZA'
 OR  code = 'ALB'
-AND indep_year <= 1990
+AND indep_year < 1990
 ;
 
 -- 問14
 -- 全ての地方をグループ化せずに表示してください。
-SELECT
+SELECT DISTINCT
     region
 FROM
     countries
@@ -169,7 +169,7 @@ FROM
     countries
 ORDER BY
     life_expectancy DESC,
-    indep_year ASC
+    indep_year DESC
     ;
 -- 問19
 -- 全ての国の国コードの一文字目と国名を表示させてください。
@@ -249,9 +249,11 @@ SELECT
 FROM
     countries
 JOIN
-    countrylanguages ON countries.code = countrylanguages.country_code
+    countrylanguages 
+    ON countries.code = countrylanguages.country_code
 JOIN
-    cities ON countries.code = cities.country_code
+    cities 
+    ON countries.code = cities.country_code
 ;
 -- 問27
 -- 全ての有名人を出力してください。左側外部結合を使用して国名なし（country_codeがNULL）も表示してください。
@@ -269,17 +271,20 @@ FROM
 SELECT
     celebrities.name,
     countries.name,
-   countrylanguages.language
+    (
+        SELECT language
+        FROM countrylanguages 
+        WHERE country_code = countries.code AND is_official = 'T'
+        ORDER BY percentage DESC
+        LIMIT 1
+    ) AS language
 FROM
     celebrities
-    LEFT JOIN
-        countries
-    ON  countries.code = celebrities.country_code
-    LEFT JOIN
-        countrylanguages 
-    ON countrylanguages.country_code = celebrities.country_code
-    WHERE
-    countrylanguages.is_official = 'T'
+LEFT JOIN
+    countries 
+    ON countries.code = celebrities.country_code 
+WHERE
+    countries.name IS NOT NULL
 ;
 -- 問29
 -- 全ての有名人の名前と国名をに出力してください。 ただしテーブル結合せずサブクエリを使用してください。
