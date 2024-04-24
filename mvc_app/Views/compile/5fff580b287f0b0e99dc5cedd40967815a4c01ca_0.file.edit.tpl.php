@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-21 07:58:14
+/* Smarty version 4.5.1, created on 2024-04-24 13:08:33
   from '/Applications/MAMP/htdocs/mvc_app/Views/contact/edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_6624c7168283c0_73245097',
+  'unifunc' => 'content_662904518e7092_92338399',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fff580b287f0b0e99dc5cedd40967815a4c01ca' => 
     array (
       0 => '/Applications/MAMP/htdocs/mvc_app/Views/contact/edit.tpl',
-      1 => 1713686144,
+      1 => 1713881001,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6624c7168283c0_73245097 (Smarty_Internal_Template $_smarty_tpl) {
+function content_662904518e7092_92338399 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 

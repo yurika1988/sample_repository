@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.1, created on 2024-04-21 08:32:56
+/* Smarty version 4.5.1, created on 2024-04-23 14:04:38
   from '/Applications/MAMP/htdocs/mvc_app/Views/contact/readpage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.1',
-  'unifunc' => 'content_6624cf38d416a0_40555277',
+  'unifunc' => 'content_6627bff6d8cc13_11566824',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e198b79d83ff9f661e9fc446ae2982ef887b8ea' => 
     array (
       0 => '/Applications/MAMP/htdocs/mvc_app/Views/contact/readpage.tpl',
-      1 => 1713688320,
+      1 => 1713880994,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6624cf38d416a0_40555277 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6627bff6d8cc13_11566824 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="ja">
 
@@ -40,7 +40,6 @@ function content_6624cf38d416a0_40555277 (Smarty_Internal_Template $_smarty_tpl)
         }
     </style>
 </head>
-
 <body>
     <div class="p-4 container-field form-orange">
         <div class="row justify-content-center">
@@ -79,12 +78,12 @@ function content_6624cf38d416a0_40555277 (Smarty_Internal_Template $_smarty_tpl)
                         <p class="label-text">お問い合わせ内容</p>
                         <p><?php echo (($tmp = htmlspecialchars((string)nl2br((string) $_POST['body'], (bool) 1), ENT_QUOTES, 'UTF-8', true) ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 </p>
-                        <input type="hidden" name="body" value="<?php echo $_POST['body'];?>
+                        <input type="hidden" name="body" value="<?php echo (($tmp = htmlspecialchars((string)nl2br((string) $_POST['body'], (bool) 1), ENT_QUOTES, 'UTF-8', true) ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 ">
                     </div>
                     <h2>上記内容でよろしいでしょうか？</h2>
                     <div class="edit-button">
-                        <button type="button" onclick="window.location.href = 'index';"
+                        <button type="button" onclick="history.back();"
                             class="btn bg-secondary my-2 mx-2">キャンセル</button>
                         <button type="submit" class="btn bg-warning my-2">送信</button>
                     </div>
@@ -92,7 +91,27 @@ function content_6624cf38d416a0_40555277 (Smarty_Internal_Template $_smarty_tpl)
             </div>
         </div>
     </div>
-</body>
+    <?php echo '<script'; ?>
+>
+        // キャンセルボタンのクリックイベントを追加
+        document.getElementById("cancelButton").addEventListener("click", function(e) {
+            e.preventDefault(); // デフォルトのクリックイベントをキャンセル
 
+            // 入力画面にリダイレクトし、セッションストレージから直前の入力内容を取得して表示する
+            window.location.href = 'input_page_url';
+        });
+
+        // 送信ボタンのクリックイベントを追加
+        document.getElementById("submitButton").addEventListener("click", function() {
+            // 送信ボタンが押された場合、セッションストレージから入力内容を削除する
+            sessionStorage.removeItem("name");
+            sessionStorage.removeItem("kana");
+            sessionStorage.removeItem("tel");
+            sessionStorage.removeItem("email");
+            sessionStorage.removeItem("body");
+        });
+    <?php echo '</script'; ?>
+>
+</body>
 </html><?php }
 }
