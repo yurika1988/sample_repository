@@ -17,7 +17,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="p-4 container-field form-orange">
         <div class="row justify-content-center">
@@ -47,11 +46,11 @@
                     <div class="form-item">
                         <p class="label-text">お問い合わせ内容</p>
                         <p>{$smarty.post.body|nl2br|escape:'html'|default:''}</p>
-                        <input type="hidden" name="body" value="{$smarty.post.body}">
+                        <input type="hidden" name="body" value="{$smarty.post.body|nl2br|escape:'html'|default:''}">
                     </div>
                     <h2>上記内容でよろしいでしょうか？</h2>
                     <div class="edit-button">
-                        <button type="button" onclick="window.location.href = 'index';"
+                        <button type="button" onclick="history.back();"
                             class="btn bg-secondary my-2 mx-2">キャンセル</button>
                         <button type="submit" class="btn bg-warning my-2">送信</button>
                     </div>
@@ -59,6 +58,24 @@
             </div>
         </div>
     </div>
-</body>
+    <script>
+        // キャンセルボタンのクリックイベントを追加
+        document.getElementById("cancelButton").addEventListener("click", function(e) {
+            e.preventDefault(); // デフォルトのクリックイベントをキャンセル
 
+            // 入力画面にリダイレクトし、セッションストレージから直前の入力内容を取得して表示する
+            window.location.href = 'input_page_url';
+        });
+
+        // 送信ボタンのクリックイベントを追加
+        document.getElementById("submitButton").addEventListener("click", function() {
+            // 送信ボタンが押された場合、セッションストレージから入力内容を削除する
+            sessionStorage.removeItem("name");
+            sessionStorage.removeItem("kana");
+            sessionStorage.removeItem("tel");
+            sessionStorage.removeItem("email");
+            sessionStorage.removeItem("body");
+        });
+    </script>
+</body>
 </html>

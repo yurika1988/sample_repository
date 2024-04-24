@@ -23,7 +23,7 @@ function route($path, $httpMethod)
                         $methodName = 'logIn';
                         break;
                     case ['sign-up', 'get']:
-                        $methodName ='signUp';
+                        $methodName = 'signUp';
                         break;
                     case ['create', 'post']:
                         $methodName = 'create';
@@ -35,7 +35,7 @@ function route($path, $httpMethod)
                         $methodName = 'certification';
                         break;
                     case ['my-page', 'get']:
-                        $methodName ='myPage';
+                        $methodName = 'myPage';
                         break;
                     case ['edit', 'get']:
                         $methodName = 'edit';
@@ -57,10 +57,16 @@ function route($path, $httpMethod)
                     case ['read', 'post']:
                         $methodName = 'read';
                         break;
+                    case ['read', 'get']:
+                        $methodName = 'read';
+                        break;
                     case ['completion', 'post']:
-                            $methodName = 'edit';
+                        $methodName = 'edit';
                         break;
                     case ['create', 'post']:
+                        $methodName = 'create';
+                        break;
+                    case ['create', 'get']:
                         $methodName = 'create';
                         break;
                     case ['edit', 'get']:
@@ -80,16 +86,14 @@ function route($path, $httpMethod)
             default:
                 $controllerName = '';
                 $methodName = '';
-
         }
-        require_once (ROOT_PATH."Controllers/{$controllerName}.php");
+        require_once(ROOT_PATH . "Controllers/{$controllerName}.php");
 
         $obj = new $controllerName();
         $obj->$methodName();
-
     } catch (Throwable $e) {
         error_log($e->getMessage());
         header("HTTP/1.0 404 Not Found");
-				exit();
+        exit();
     }
 }

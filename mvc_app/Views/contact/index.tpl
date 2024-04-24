@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tel">電話番号</label>
-                        <input type="tel" class="form-control" name="tel" id="tel" placeholder="000-0000-0000"
+                        <input type="tel" class="form-control" name="tel" id="tel" placeholder="00000000000"
                             value="{$_POST['tel']|default:''}">
                         <p class="error-text">{$errorMessages['tel']|default:''}</p>
                     </div>
@@ -47,8 +47,10 @@
                         <div class="form-group">
                             <label for="body">お問い合わせ内容</label>
                             <textarea class="form-control" name="body" id="body" placeholder="〇〇について"
-                                maxlength="200">{$smarty.post.body|escape:'html'|escape:'javascript'|default:''}</textarea>
-                            <p class="error-text">{$errorMessages['body']|default:''}</p>
+                                maxlength="200" value="{$smarty.post.body|escape:'htmlall'|default:''}"></textarea>
+                            {if empty($errorMessages['body'])}
+                                <p class="error-text">{$errorMessages['body']|default:''}</p>
+                            {/if}
                         </div>
                         <button type="submit" class="btn bg-warning my-2">送信</button>
                 </form>
@@ -75,28 +77,28 @@
                     <td>{$contact.body|escape}</td>
                     <td><a href="/contact/edit?id={$contact.id|escape}">編集</a></td>
                     <td><a href="/contact/delete?id={$contact.id|escape}" class="link-danger"
-                    onclick="return confirm('本当に削除しますか?')">削除</a></td>
+                            onclick="return confirm('本当に削除しますか?')">削除</a></td>
                 </tr>
             {/foreach}
         </table>
     </div>
     <script>
-    // 削除ボタンのクリックイベントを追加
-    const deleteLinks = document.querySelectorAll('.delete-link');
-    deleteLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // デフォルトのクリックイベントをキャンセル
-            
-            // 確認ダイアログを表示し、OKが押された場合のみ削除処理を実行
-            const confirmed = confirm('本当に削除しますか？');
-            if (confirmed) {
-                window.location.href = this.getAttribute('href');
-            }
+        // 削除ボタンのクリックイベントを追加
+        const deleteLinks = document.querySelectorAll('.delete-link');
+        deleteLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // デフォルトのクリックイベントをキャンセル
+
+                // 確認ダイアログを表示し、OKが押された場合のみ削除処理を実行
+                const confirmed = confirm('本当に削除しますか？');
+                if (confirmed) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
         });
-    });
-</script>
+    </script>
     <script>
-       document.getElementById("contactForm").addEventListener("submit", function(e) {
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
             // 各入力フィールドの値を取得
             const name = document.getElementById("name").value;
             const kana = document.getElementById("kana").value;
@@ -143,35 +145,14 @@
                 e.preventDefault();
                 return;
             }
-        });
-    </script>
-    <script>
-        document.getElementById("contactForm").addEventListener("click", function() {
-            // フォームの各入力値を取得し、セッションストレージに保存する
-            sessionStorage.setItem("name", document.getElementById("name").value);
-            sessionStorage.setItem("kana", document.getElementById("kana").value);
-            sessionStorage.setItem("tel", document.getElementById("tel").value);
-            sessionStorage.setItem("email", document.getElementById("email").value);
-            sessionStorage.setItem("body", document.getElementById("body").value);
-        });
 
-        // ページがリロードされたときの処理
-        window.onload = function() {
-            if (sessionStorage.getItem("name")) {
-                // セッションストレージから各入力値を取得してフォームに再表示する
-                document.getElementById("name").value = sessionStorage.getItem("name");
-                document.getElementById("kana").value = sessionStorage.getItem("kana");
-                document.getElementById("tel").value = sessionStorage.getItem("tel");
-                document.getElementById("email").value = sessionStorage.getItem("email");
-                document.getElementById("body").value = sessionStorage.getItem("body");
-
-                sessionStorage.removeItem("name");
-                sessionStorage.removeItem("kana");
-                sessionStorage.removeItem("tel");
-                sessionStorage.removeItem("email");
-                sessionStorage.removeItem("body");
-            }
-        };
+            // フォームが送信されたら、セッションストレージに入力内容を保存する
+            sessionStorage.setItem("name", name);
+            sessionStorage.setItem("kana", kana);
+            sessionStorage.setItem("tel", tel);
+            sessionStorage.setItem("email", email);
+            sessionStorage.setItem("body", body);
+        });
     </script>
 </body>
 
