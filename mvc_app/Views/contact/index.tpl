@@ -46,9 +46,10 @@
                         <p class="error-text">{$errorMessages['email']|default:''}</p>
                         <div class="form-group">
                             <label for="body">お問い合わせ内容</label>
-                            <textarea class="form-control" name="body" id="body" placeholder="〇〇について" maxlength="200">{$smarty.post.body|escape}</textarea>
-                            {if empty($errorMessages['body'])}
-                                <p class="error-text">{$errorMessages['body']|default:''}</p>
+                            <textarea class="form-control" name="body" id="body" placeholder="〇〇について"
+                                maxlength="200">{$smarty.post.body|escape}</textarea>
+                            {if isset($errorMessages['body']) && !empty($errorMessages['body'])}
+                                <p class="error-text">{$errorMessages['body']}</p>
                             {/if}
                         </div>
                         <button type="submit" class="btn bg-warning my-2">送信</button>
