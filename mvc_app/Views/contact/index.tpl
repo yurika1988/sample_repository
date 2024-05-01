@@ -45,13 +45,12 @@
                             placeholder="geekation@exemple.com" value="{$_POST['email']|default:''}">
                         <p class="error-text">{$errorMessages['email']|default:''}</p>
                         <div class="form-group">
-                            <label for="body">お問い合わせ内容</label>
-                            <textarea class="form-control" name="body" id="body" placeholder="〇〇について"
-                                maxlength="200">{$smarty.post.body|escape}</textarea>
-                            {if isset($errorMessages['body']) && !empty($errorMessages['body'])}
-                                <p class="error-text">{$errorMessages['body']}</p>
-                            {/if}
-                        </div>
+                        <label for="body">お問い合わせ内容</label>
+                    <textarea class="form-control" name="body" id="body" placeholder="〇〇について" maxlength="200">{if isset($smarty.post.body)}{$smarty.post.body|escape}{/if}</textarea>
+                        {if isset($smarty.post.body) && isset($errorMessages['body']) && empty($smarty.post.body)}
+                            <p class="error-text">{$errorMessages['body']}</p>
+                        {/if}
+                    </div>                
                         <button type="submit" class="btn bg-warning my-2">送信</button>
                 </form>
             </div>
